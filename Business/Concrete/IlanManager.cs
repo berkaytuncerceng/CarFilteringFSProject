@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete.SuccessResults;
+using DataAccess.Abstract;
 using DataAccess.Concrete;
 using Entities.Concrete;
 
@@ -8,9 +9,9 @@ namespace Business.Concrete
 {
     public class IlanManager : IIlanService
     {
-        IlanDal _ilanDal;
+        IIlanDal _ilanDal;
 
-        public IlanManager(IlanDal ilanDal)
+        public IlanManager(IIlanDal ilanDal)
         {
             _ilanDal = ilanDal;
         }

@@ -12,22 +12,20 @@ using DTOs.Concrete;
 
 namespace Business.DependencyResolvers.MicrosoftDI
 {
-    public static class MicrosoftBusinessModule
-    {
-        private static readonly string _connectionString = (@"Server=(localdb)\mssqllocalDB;Database=OtoraporListDb;Trusted_Connection=true");
+	public static class MicrosoftBusinessModule
+	{
+		public static void ConfigureServices(this IServiceCollection services, IConfiguration configuration)
+		{
+			services.AddTransient<IDbConnection>(con => new SqlConnection(configuration.GetConnectionString("Connection")));
 
-        public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddTransient<IDbConnection>(con => new SqlConnection(configuration.GetConnectionString("Connection")));
+			services.AddScoped<IIlanService, IlanManager>();
+			services.AddScoped<IIlanDal, IlanDal>();
 
-            services.AddScoped<IIlanService, IlanManager>();
-            services.AddScoped<IIlanDal, IlanDal>();
+			services.AddScoped<IKaynakService, KaynakManager>();
+			services.AddScoped<IKaynakDal, KaynakDal>();
 
-            services.AddScoped<IKaynakService, KaynakManager>();
-            services.AddScoped<IKaynakDal, KaynakDal>();
-
-            services.AddScoped<IValidator<IlanForUpdateDto>, IlanForUpdateValidator>();
-            services.AddScoped<IValidator<KaynakForUpdateDto>, KaynakForUpdateValidator>();
-        }
-    }
+			services.AddScoped<IValidator<IlanForUpdateDto>, IlanForUpdateValidator>();
+			services.AddScoped<IValidator<KaynakForUpdateDto>, KaynakForUpdateValidator>();
+		}
+	}
 }
