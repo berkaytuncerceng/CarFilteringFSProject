@@ -1,5 +1,4 @@
-using Business.Abstract;
-using Entities.Concrete;
+﻿using Business.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
 using System.Diagnostics;
@@ -11,19 +10,30 @@ namespace WebApplication1.Controllers
 		private readonly ILogger<HomeController> _logger;
 		private IIlanService _ilanService;
 
-
 		public HomeController(ILogger<HomeController> logger, IIlanService ilanService)
 		{
 			_logger = logger;
 			_ilanService = ilanService;
 		}
 
-		public string Index()
+		public IActionResult Index()
 		{
-			var ilan = _ilanService.GetById(3);
-			return "year: " + ilan.Data.modelYili;
+			var model = new MVC.Models.HomeViewModels.IndexViewModel();
+			var result = _ilanService.GetAll();
+			if (!result.Success)
+				return BadRequest();
+			model.Ilanlar = result.Data;
+			return View(model);
 		}
 
+		public IActionResult List()
+		{
+			return View();
+		}
+		public IActionResult Details()
+		{
+			return View();
+		}
 		public IActionResult Privacy()
 		{
 			return View();

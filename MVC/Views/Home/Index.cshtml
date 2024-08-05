@@ -1,8 +1,217 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model MVC.Models.HomeViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<section class="main-content page-listing-grid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="flat-select clearfix">
+                    <div class="float-left width50 clearfix">
+                        <div class="one-three showing">
+                            <p><span>@Model.Ilanlar.Count()</span> İlan Bulundu</p>
+                        </div>
+                        <div class="one-three more-filter">
+                            <ul class="unstyled">
+                                <li class="current">
+                                    <a href="#" class="title">Daha Fazla <i class="fa fa-angle-right"></i></a>
+                                    <ul class="unstyled">
+                                        <li class="en">
+                                            <input type="checkbox" id="auto" name="category">
+                                            <label for="auto">Otomatik Vites</label>
+                                        </li>
+                                        <li class="en">
+                                            <input type="checkbox" id="sunroof" name="category">
+                                            <label for="sunroof">Cam Tavan</label>
+                                        </li>
+
+                                        <!-- Diğer filtreleme seçenekleri burada -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="one-three sortby">
+                            <ul class="unstyled">
+                                <li class="current">
+                                    <a href="#" class="title">Şuna göre sırala:<i class="fa fa-angle-right"></i></a>
+                                    <ul class="unstyled">
+                                        <li class="en"><a href="#" title=""><i class="fa fa-caret-right"></i>Azalan Fiyat</a></li>
+                                        <li class="en"><a href="#" title=""><i class="fa fa-caret-right"></i>Artan Fiyat</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="float-right">
+                        <div class="flat-sort">
+                            <a href="listing-list.html" class="course-list-view active"><i class="fa fa-list"></i></a>
+                            <a href="listing-grid.html" class="course-grid-view "><i class="fa fa-th"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-list">
+                    <!-- Araç ilanlarını döngü ile listeleyin -->
+                    @foreach (var ilan in Model.Ilanlar)
+                    {
+                        <div class="flat-product clearfix">
+                            <div class="featured-product">
+                                <img src="@ilan.imageUrl_S" alt="image">
+                                <div class="time">
+                                    @if (ilan.tarih < DateTime.Now)
+                                    {
+                                        <span>Now Close</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Now Open</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="rate-product">
+                                <div class="link-review clearfix">
+                                    <div class="button-product float-left">
+                                        <button type="button" class="flat-button" onclick="location.href='#'">Araba</button>
+                                    </div>
+                                    <div class="start-review">
+                                        <span class="flat-start">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <a href="#" class="review">(2 reviewers)</a>
+                                    </div>
+                                </div>
+                                <div class="info-product">
+                                    <h6 class="title"><a href="listing-single.html">@ilan.Baslik</a></h6>
+                                    <p>@ilan.yer</p>
+                                    <a href="#" class="heart">
+                                        <i class="ion-android-favorite-outline"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="blog-pagination style2 text-center">
+                    <ul class="flat-pagination clearfix">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next">
+                            <a href="#">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class=" widget widget-form style2">
+                        <h5 class="widget-title">
+                            Search Box
+                        </h5>
+                        <form novalidate="" class="filter-form clearfix" id="filter-form" method="post" action="#">
+                            <p class="book-notes">
+                                <input type="text" placeholder="What are you looking for?" name="question" required="">
+                            </p>
+                            <p class="book-form-select icon">
+                                <select class=" dropdown_sort">
+                                    <option value="">All Categories</option>
+                                    <option value="">Hotel & travel</option>
+                                    <option value="">Real Estate</option>
+                                    <option value="">Restaurant</option>
+                                    <option value="">Healthy & Fitness</option>
+                                    <option value="">Food and coffee</option>
+                                    <option value="">Drinks</option>
+                                </select>
+                                <i class="fa fa-angle-down"></i>
+                            </p>
+                            <p class="book-form-address icon">
+                                <input type="text" placeholder="Address" name="address" required="">
+                                <i class="ion-android-locate"></i>
+                            </p>
+                            <p class="location">Location <i class="ion-location float-right"></i></p>
+                            <p class="input-location form-filter">
+                                <span class="filter">
+                                    <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5" />
+                                </span>
+                            </p>
+                            <p class="form-submit text-center">
+                                <button class="flat-button">Search <i class="ion-ios-search-strong"></i></button>
+                            </p>
+                        </form>
+                    </div>
+                    <div class="widget widget-map">
+                        <h5 class="widget-title">Map</h5>
+                        <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie.</p>
+                        <div class="flat-maps">
+                            <div class="maps" style="width: 100%; height: 359px; "></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="flat-row v1 bg-theme">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="title-section">
+                    <h1 class="title">Newsletter</h1>
+                    <div class="sub-title">
+                        Subscribe now and receive weekly newsletter with
+                    </div>
+                </div>
+                <form id="subscribe-form" class="flat-mailchimp" method="post" action="#" data-mailchimp="true">
+                    <div class="field clearfix" id="subscribe-content">
+                        <p class="wrap-input-email">
+                            <input type="text" tabindex="2" id="subscribe-email" name="subscribe-email" placeholder="Your Email Here">
+                        </p>
+                        <p class="wrap-btn">
+                            <button type="button" id="subscribe-button" class=" subscribe-submit effect-button" title="Subscribe now">SUBSCRIBE</button>
+                        </p>
+                    </div>
+                    <div id="subscribe-msg"></div>
+                </form>
+            </div>
+            <div class="col-lg-2">
+                <div class="flat-counter text-center">
+                    <div class="content-counter">
+                        <div class="icon-count">
+                            <i class="ion-waterdrop"></i>
+                        </div>
+                        <div class="name-count">Listing</div>
+                        <div class="numb-count" data-to="1897" data-speed="2000" data-waypoint-active="yes">1897</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="flat-counter style2 text-center">
+                    <div class="content-counter">
+                        <div class="icon-count">
+                            <i class="ion-podium"></i>
+                        </div>
+                        <div class="name-count">Reservation</div>
+                        <div class="numb-count" data-to="3568" data-speed="2000" data-waypoint-active="yes">3568</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="flat-counter style3 text-center">
+                    <div class="content-counter">
+                        <div class="icon-count">
+                            <i class="ion-earth"></i>
+                        </div>
+                        <div class="name-count">User</div>
+                        <div class="numb-count" data-to="13680" data-speed="2000" data-waypoint-active="yes">13680</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
