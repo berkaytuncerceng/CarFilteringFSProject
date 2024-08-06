@@ -1,5 +1,4 @@
 ﻿using Business.DependencyResolvers.MicrosoftDI;
-using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,12 +23,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles(); // wwwroot klasörü için
 
 // Diğer klasörleri de eklemek için
-app.UseStaticFiles(new StaticFileOptions
-{
-	FileProvider = new PhysicalFileProvider(
-		Path.Combine(env.ContentRootPath, "listany-package")),
-	RequestPath = "/listany-package"
-});
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//	FileProvider = new PhysicalFileProvider(
+//		Path.Combine(env.ContentRootPath, "listany-package")),
+//	RequestPath = "/listany-package"
+//});
 
 app.UseRouting();
 

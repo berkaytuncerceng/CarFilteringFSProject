@@ -38,8 +38,8 @@
                                 <li class="current">
                                     <a href="#" class="title">Şuna göre sırala:<i class="fa fa-angle-right"></i></a>
                                     <ul class="unstyled">
-                                        <li class="en"><a href="#" title=""><i class="fa fa-caret-right"></i>Azalan Fiyat</a></li>
-                                        <li class="en"><a href="#" title=""><i class="fa fa-caret-right"></i>Artan Fiyat</a></li>
+                                        <li class="en"><a href="@Url.Action("Index", new { sortOrder = "asc" })" title=""><i class="fa fa-caret-right"></i>Artan Fiyat</a></li>
+                                        <li class="en"><a href="@Url.Action("Index", new { sortOrder = "desc" })" title=""><i class="fa fa-caret-right"></i>Azalan Fiyat</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -47,8 +47,8 @@
                     </div>
                     <div class="float-right">
                         <div class="flat-sort">
-                            <a href="listing-list.html" class="course-list-view active"><i class="fa fa-list"></i></a>
-                            <a href="listing-grid.html" class="course-grid-view "><i class="fa fa-th"></i></a>
+                            <a href="https://localhost:7123/Home" class="course-list-view active"><i class="fa fa-list"></i></a>
+                            <a href="https://localhost:7123/home/List" class="course-grid-view "><i class="fa fa-th"></i></a>
                         </div>
                     </div>
                 </div>
@@ -82,6 +82,8 @@
                                     <a href="#" class="heart">
                                         <i class="ion-android-favorite-outline"></i>
                                     </a>
+
+                                    <h4> @String.Format("{0:N0}", ilan.fiyat) TL </h4>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +111,7 @@
                                 <input type="text" placeholder="Başlık" name="Baslik" value="@Context.Request.Query["Baslik"]" />
                             </p>
                             <p class="book-form-select icon">
-                                <select class="dropdown_sort" name="KaynakId" >
+                                <select class="dropdown_sort" name="KaynakId">
                                     <option value="">Tüm Kaynaklar</option>
                                     <option value="1">Kaynak 1</option>
                                     <option value="2">Kaynak 2</option>
@@ -131,8 +133,20 @@
                                 <input type="number" placeholder="Max Yıl" name="MaxYil" value="@Context.Request.Query["MaxYil"]" />
                             </p>
                             <p class="book-form-select icon">
-                                <input type="text" placeholder="Renk" name="Renk" value="@Context.Request.Query["Renk"]" />
-                            </p>
+                                <select class="dropdown_sort" name="Renk">
+                                    <option value="" selected>Tüm Renkler</option>
+                                    <option value="Beyaz">Beyaz</option>
+                                    <option value="Gri">Gri</option>
+                                    <option value="Mavi">Mavi</option>
+                                    <option value="Kırmızı">Kırmızı</option>
+                                    <option value="Siyah">Siyah</option>
+                                    <option value="Yeşil">Yeşil</option>
+                                    <option value="Sarı">Sarı</option>
+                                    <option value="Turuncu">Turuncu</option>
+                                    <option value="Pembe">Pembe</option>
+                                    <option value="Kahverengi">Kahverengi</option>
+                                    <!-- Diğer kaynak seçenekleri burada -->
+                                </select>                            </p>
                             <p class="form-submit text-center">
                                 <button class="flat-button">Ara <i class="ion-ios-search-strong"></i></button>
                             </p>

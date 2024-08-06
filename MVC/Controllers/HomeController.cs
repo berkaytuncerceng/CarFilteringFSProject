@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using DTOs.Concrete;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
 using System.Diagnostics;
@@ -17,12 +18,47 @@ namespace WebApplication1.Controllers
 			_ilanService = ilanService;
 		}
 
-		public IActionResult Index()
+		public IActionResult Index(IlanForFilterDto filter, string sortOrder = null)
 		{
-			return View();
+			var model = new MVC.Models.HomeViewModels.IndexViewModel();
+			var result = _ilanService.GetFiltered(filter);
+
+			if (!result.Success)
+			{
+				return BadRequest();
+			}
+
+			List<Ilan> sortedIlanlar;
+
+			if (sortOrder == "asc")
+			{
+				var sortResult = _ilanService.SortASC();
+				if (!sortResult.Success)
+				{
+					return BadRequest();
+				}
+				sortedIlanlar = sortResult.Data;
+			}
+			else if (sortOrder == "desc")
+			{
+				var sortResult = _ilanService.SortDESC();
+				if (!sortResult.Success)
+				{
+					return BadRequest();
+				}
+				sortedIlanlar = sortResult.Data;
+			}
+			else
+			{
+				sortedIlanlar = result.Data;
+			}
+
+			model.Ilanlar = sortedIlanlar;
+			return View(model);
 		}
-		[HttpPost]
-		public IActionResult Index(IlanForFilterDto filter)
+
+
+		public IActionResult List(IlanForFilterDto filter)
 		{
 			var model = new MVC.Models.HomeViewModels.IndexViewModel();
 			var result = _ilanService.GetFiltered(filter);
@@ -32,10 +68,6 @@ namespace WebApplication1.Controllers
 			return View(model);
 		}
 
-		public IActionResult List()
-		{
-			return View();
-		}
 		public IActionResult Details()
 		{
 			return View();

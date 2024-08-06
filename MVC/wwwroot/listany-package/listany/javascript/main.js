@@ -1411,7 +1411,7 @@
       var retina = window.devicePixelRatio > 1 ? true : false;
 
         if(retina) {
-            $('.header .logo').find('img').attr({src:'./images/logo@2x.png',width:'144',height:'45'});   
+            $('.header .logo').find('img').attr({src:'./images/logo.png',width:'144',height:'45'});   
         }
     };    
     
