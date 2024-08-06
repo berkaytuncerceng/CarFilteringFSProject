@@ -59,21 +59,11 @@
                         <div class="flat-product clearfix">
                             <div class="featured-product">
                                 <img src="@ilan.imageUrl_S" alt="image">
-                                <div class="time">
-                                    @if (ilan.tarih < DateTime.Now)
-                                    {
-                                        <span>Now Close</span>
-                                    }
-                                    else
-                                    {
-                                        <span>Now Open</span>
-                                    }
-                                </div>
                             </div>
                             <div class="rate-product">
                                 <div class="link-review clearfix">
                                     <div class="button-product float-left">
-                                        <button type="button" class="flat-button" onclick="location.href='#'">Araba</button>
+                                        <button type="button" class="flat-button" onclick="location.href='https://localhost:7123/Home/Details'">Görüntüle</button>
                                     </div>
                                     <div class="start-review">
                                         <span class="flat-start">
@@ -112,38 +102,42 @@
                 <div class="sidebar">
                     <div class=" widget widget-form style2">
                         <h5 class="widget-title">
-                            Search Box
+                            Filtrele
                         </h5>
-                        <form novalidate="" class="filter-form clearfix" id="filter-form" method="post" action="#">
+                        <form novalidate="" class="filter-form clearfix" id="filter-form" method="get" action="@Url.Action("Index", "Home")">
                             <p class="book-notes">
-                                <input type="text" placeholder="What are you looking for?" name="question" required="">
+                                <input type="text" placeholder="Başlık" name="Baslik" value="@Context.Request.Query["Baslik"]" />
                             </p>
                             <p class="book-form-select icon">
-                                <select class=" dropdown_sort">
-                                    <option value="">All Categories</option>
-                                    <option value="">Hotel & travel</option>
-                                    <option value="">Real Estate</option>
-                                    <option value="">Restaurant</option>
-                                    <option value="">Healthy & Fitness</option>
-                                    <option value="">Food and coffee</option>
-                                    <option value="">Drinks</option>
+                                <select class="dropdown_sort" name="KaynakId" >
+                                    <option value="">Tüm Kaynaklar</option>
+                                    <option value="1">Kaynak 1</option>
+                                    <option value="2">Kaynak 2</option>
+                                    <option value="3">Kaynak 3</option>
+                                    <!-- Diğer kaynak seçenekleri burada -->
                                 </select>
                                 <i class="fa fa-angle-down"></i>
                             </p>
-                            <p class="book-form-address icon">
-                                <input type="text" placeholder="Address" name="address" required="">
-                                <i class="ion-android-locate"></i>
+                            <p class="book-form-select icon">
+                                <input type="number" placeholder="Min Fiyat" name="MinFiyat" value="@Context.Request.Query["MinFiyat"]" />
                             </p>
-                            <p class="location">Location <i class="ion-location float-right"></i></p>
-                            <p class="input-location form-filter">
-                                <span class="filter">
-                                    <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5" />
-                                </span>
+                            <p class="book-form-select icon">
+                                <input type="number" placeholder="Max Fiyat" name="MaxFiyat" value="@Context.Request.Query["MaxFiyat"]" />
+                            </p>
+                            <p class="book-form-select icon">
+                                <input type="number" placeholder="Min Yıl" name="MinYil" value="@Context.Request.Query["MinYil"]" />
+                            </p>
+                            <p class="book-form-select icon">
+                                <input type="number" placeholder="Max Yıl" name="MaxYil" value="@Context.Request.Query["MaxYil"]" />
+                            </p>
+                            <p class="book-form-select icon">
+                                <input type="text" placeholder="Renk" name="Renk" value="@Context.Request.Query["Renk"]" />
                             </p>
                             <p class="form-submit text-center">
-                                <button class="flat-button">Search <i class="ion-ios-search-strong"></i></button>
+                                <button class="flat-button">Ara <i class="ion-ios-search-strong"></i></button>
                             </p>
                         </form>
+
                     </div>
                     <div class="widget widget-map">
                         <h5 class="widget-title">Map</h5>
