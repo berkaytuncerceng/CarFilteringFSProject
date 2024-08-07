@@ -33,19 +33,11 @@ namespace WebApplication1.Controllers
 			if (sortOrder == "asc")
 			{
 				var sortResult = _ilanService.SortASC();
-				if (!sortResult.Success)
-				{
-					return BadRequest();
-				}
 				sortedIlanlar = sortResult.Data;
 			}
 			else if (sortOrder == "desc")
 			{
 				var sortResult = _ilanService.SortDESC();
-				if (!sortResult.Success)
-				{
-					return BadRequest();
-				}
 				sortedIlanlar = sortResult.Data;
 			}
 			else

@@ -78,18 +78,17 @@
                             </div>
                             <div class="rate-product">
                                 <div class="link-review clearfix">
-                                    <div class="button-product float-left">
-                                        <button type="button" class="flat-button" onclick="location.href='@Url.Action("Details", "Home", new { id = ilan.Id })'">Görüntüle</button>
-                                    </div>
+                                    @*<div class="button-product float-left">
+                <button type="button" class="flat-button" onclick="location.href='@Url.Action("Details", "Home", new { id = ilan.Id })'">Görüntüle</button>
+            </div>*@
                                     <div class="start-review">
-                                        <span class="flat-start">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <a href="#" class="review">(2 reviewers)</a>
+                                        @*<span class="flat-start">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </span>*@
                                     </div>
                                 </div>
                                 <div class="info-product">
@@ -100,6 +99,10 @@
                                     </a>
 
                                     <h4> @String.Format("{0:N0}", ilan.fiyat) TL </h4>
+
+                                </div>
+                                <div class="button-product float-left">
+                                    <button type="button" class="flat-button" onclick="location.href='@Url.Action("Details", "Home", new { id = ilan.Id })'">Görüntüle</button>
                                 </div>
                             </div>
                         </div>

@@ -39,6 +39,7 @@ namespace Business.Concrete
 
 		public IDataResult<Ilan> GetById(int id)
 		{
+
 			return new SuccessDataResult<Ilan>(_ilanDal.GetById(id));
 		}
 

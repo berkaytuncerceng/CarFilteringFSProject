@@ -1,4 +1,4 @@
-/**
+﻿/**
   * Name: ListAny
   * Version: 1.0
   * Author: Themesflat
@@ -365,6 +365,21 @@ h4 { font-size: 25px; line-height: 25px; }
 h5 { font-size: 20px; line-height: 20px; }
 h6 { font-size: 16px; line-height: 16px; }
 
+/* H3 Başlık Stili */
+h3 {
+	font-size: 30px; 
+	color: black;
+	padding-bottom: 10px; 
+	text-align: left; 
+}
+
+	/* H3 Başlık Hover Stili */
+	h3:hover {
+		color: #E8280B;
+		border-bottom-color: #cc0000; 
+		transition: color 0.3s, border-bottom-color 0.3s; 
+	}
+
 /* Total
 -------------------------------------------------------------- */
 #mainnav > ul > li > a, .wrap-pagetitle, .textbox .text-content a, .flat-popupform .modal-header, .blog-shortcode article.post .more-link a {
@@ -444,6 +459,74 @@ h6 { font-size: 16px; line-height: 16px; }
 	border-bottom: 3px solid #fff;
 	padding: 14px 11px 2px 12px;
 }
+.features {
+	border: 1px solid #ddd;
+	padding: 15px;
+	width: 85%;
+	font-family: Arial, sans-serif;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+	.feature-header h2 {
+		font-size: 24px;
+		color: #000;
+		margin: 0;
+	}
+
+	.feature-header a {
+		font-size: 12px;
+		color: #0066cc;
+		text-decoration: none;
+	}
+
+		.feature-header a:hover {
+			text-decoration: underline;
+		}
+
+.feature-location {
+	margin-bottom: 15px;
+	font-size: 14px;
+	color: #555;
+}
+
+.feature-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+	.feature-list li {
+		display: flex;
+		justify-content: space-between;
+		padding: 5px 0;
+		border-bottom: 1px solid #eee;
+		font-size: 14px;
+	}
+
+		.feature-list li:last-child {
+			border-bottom: none;
+		}
+
+	.feature-list span {
+		display: block;
+	}
+
+		.feature-list span:first-child {
+			font-weight: bold;
+			color: #333;
+		}
+
+		.feature-list span:last-child {
+			color: #000;
+		}
 
 .blog-shortcode article.post .post-comment li.date {
 	font-size: 30px;
@@ -1568,9 +1651,9 @@ section.main-content.blog-single {
 
 /* Listting
 -------------------------------------------------------------- */
-section.main-content.page-listing {
+/*section.main-content.page-listing {
     padding: 99px 0px 34px;
-}
+}*/
 
 .tf-gallery {
     margin-bottom: 63px;
@@ -1792,13 +1875,15 @@ section.main-content.page-listing {
 }
 
 .sidebar .form-group {
-	margin-bottom: 23px;
+	margin: 1rem;
+,	box-shadow: 1px 0 10px rgba(0, 0, 0, 0.2)
+	;
 }
 
-.sidebar .book-form textarea {
-	height: 141px;
-	margin-bottom: 18px;
-}
+	.sidebar .book-form textarea {
+		height: 141px;
+		margin-bottom: 18px;
+	}
 
 .sidebar .book-form .book-submit {
 	-webkit-border-radius: 4px;
