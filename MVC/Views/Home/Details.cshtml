@@ -1,77 +1,97 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model MVC.Models.IlanViewModel
+
+@{ ViewBag.Title = "Details";
 }
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+
 <!-- Page title -->
 <div class="page-title style2">
-    <div class="flat-maps">
+    @*<div class="flat-maps">
         <div class="maps2" style="width: 100%; height: 268px; "></div>
-    </div>
+    </div>*@
 
-    <div class="container">
+    <!--<div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="wrap-pagetitle">
                     <div class="flat-pagetitle">
                         <div class="page-title-heading">
-                            <h1 class="title">Apricot West Britford Arch</h1>
-                        </div><!-- /.page-title-captions -->
-                        <div class="breadcrumbs style2">
+                            <h1 class="title">@Model.Baslik</h1>
+                        </div>--><!-- /.page-title-captions -->
+                        <!--<div class="breadcrumbs style2">
                             <ul>
-                                <li><i class="ion-ios-location-outline"></i>The Bronx / New York City</li>
+                                <li><i class="ion-ios-location-outline"></i>@Model.yer</li>
                             </ul>
-                        </div><!-- /.breadcrumbs -->
-                    </div>
+                        </div>--><!-- /.breadcrumbs -->
+                    <!--</div>
                 </div>
-            </div><!-- /.col-md-12 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</div><!-- /.page-title -->
+            </div>--><!-- /.col-md-12 -->
+        <!--</div>--><!-- /.row -->
+    <!--</div>--><!-- /.container -->
+<!--</div>--><!-- /.page-title -->
 <!-- Blog posts -->
 <section class="main-content page-listing">
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
                 <div class="listing-wrap">
-                    <!--<div class="tf-gallery">
+                    <div class="tf-gallery">
                         <div id="tf-slider">
-                            <ul class="slides">
-                                <li>
-                                    <img src="/images/services/f1.jpg" alt="image">
-                                </li>
-                                <li>
-                                    <img src="images/services/f1.jpg" alt="image">
-                                </li>
-                                <li>
-                                    <img src="images/services/f1.jpg" alt="image">
-                                </li>
-                                <li>
-                                    <img src="images/services/f1.jpg" alt="image">
-                                </li>
-                            </ul>
+                            <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                <ul class="slides">
+                                    <li style="width: 100%; float: left; display: block; text-align: center;">
+                                        <img src="@Model.imageUrl_M" alt="image" style="max-width: 100%; height: auto; margin: 0 auto;" draggable="false">
+                                        <div class="image-info">
+                                            <p class="model">@Model.model</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
 
-                        <div id="tf-carousel">
-                            <ul class="slides">
-                                <li>
-                                    <img src="images/services/s4.jpg" alt="image">
-                                </li>
-                                <li>
-                                    <img src="images/services/s3.jpg" alt="image">
-                                </li>
-                                <li>
-                                    <img src="images/services/s2.jpg" alt="image">
-                                </li>
-                                <li>
-                                    <img src="images/services/s1.jpg" alt="image">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>--><!-- /.tf-gallery -->
+
+                    <!--<div class="tf-gallery">
+    <div id="tf-slider">
+        <ul class="slides">
+            <li>
+                <img src=@Model.imageUrl_M alt="image">
+            </li>-->
+                    @*<li>
+        <img src=@Model.imageUrl_M alt="image">
+        </li>
+        <li>
+        <img src=@Model.imageUrl_M alt="image">
+        </li>
+        <li>
+        <img src=@Model.imageUrl_M alt="image">
+        </li>*@
+                    <!--</ul>
+        </div>
+
+        <div id="tf-carousel">
+            <ul class="slides">
+                <li>
+                    <img src=@Model.imageUrl_M alt="image">
+                </li>
+                <li>
+                    <img src=@Model.imageUrl_M alt="image">
+                </li>
+                <li>
+                    <img src=@Model.imageUrl_M alt="image">
+                </li>
+            </ul>
+        </div>
+    </div>-->
+                    
+                       
                     <div class="content-listing">
                         <div class="text">
-                            <h3 class="title-listing">Apricot West Britford Arch</h3>
+                            <h3 class="title-listing">@Model.Baslik</h3>
                             <ul class="rating-listing">
                                 <li>
                                     <div class="start-review">
@@ -100,7 +120,16 @@
                                     </div>
                                 </li>
                             </ul>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <div class=" features">
+                                <ul>
+                                    <li>Model: @Model.model</li>
+                                    <li>Model Yılı: @Model.modelYili</li>
+                                    <li>İlan Tarihi: @Model.tarih</li>
+                                    <li>Renk: @Model.renk</li>
+                                    <li></li>
+
+                                </ul>
+                            </div>
                         </div>
                         <h3 class="title-listing">Features</h3>
                         <div class="wrap-list clearfix">
@@ -113,554 +142,565 @@
                                 <li><span><i class="fa fa-check"></i></span>Booking online</li>
                             </ul>
                         </div>
-                        <div class="list-tab">
-                            <h3 class="title-listing">Our Menu</h3>
-                            <div class="flat-tabs" data-effect="fadeIn">
-                                <ul class="menu-tab clearfix">
-                                    <li class="active"><a href="#">Vegetarian</a></li>
-                                    <li class=""><a href="#">Tacos</a></li>
-                                    <li class=""><a href="#">Burritos</a></li>
-                                    <li class=""><a href="#">Specialties</a></li>
-                                    <li class=""><a href="#">Breakfast</a></li>
-                                </ul><!-- /.menu-tab -->
-                                <div class="content-tab">
-                                    <div class="content-inner active">
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t1.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Nellara</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $10.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Quesarito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $2.49
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $3.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Cantina Power Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $3.79
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="content-inner">
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Cantina Power Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $7.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Quesarito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $5.49
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $14.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t1.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Nellara</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $5.79
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="content-inner">
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Nellara</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $15.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Quesarito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $2.49
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t1.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $3.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Cantina Power Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $3.79
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="content-inner">
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">food puttu</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $12.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Quesarito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $6.49
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $3.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Cantina Power Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $3.79
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="content-inner">
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t1.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Nellara</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $10.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Quesarito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $2.49
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $3.99
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="menu-food clearfix">
-                                            <div class="featured-food float-left">
-                                                <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
-                                            </div>
-                                            <div class="content-food float-left">
-                                                <h5><a href="#">Cantina Power Burrito</a></h5>
-                                                <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
-                                            </div>
-                                            <div class="rate-food float-right">
-                                                <div class="price">
-                                                    $3.79
-                                                </div>
-                                                <div class="flat-start">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- /.content-tab -->
-                            </div>
+                        <!--<div class="list-tab">
+        <h3 class="title-listing">Our Menu</h3>
+        <div class="flat-tabs" data-effect="fadeIn">
+            <ul class="menu-tab clearfix">
+                <li class="active"><a href="#">Vegetarian</a></li>
+                <li class=""><a href="#">Tacos</a></li>
+                <li class=""><a href="#">Burritos</a></li>
+                <li class=""><a href="#">Specialties</a></li>
+                <li class=""><a href="#">Breakfast</a></li>
+            </ul>-->
+                        <!-- /.menu-tab -->
+                        <!--<div class="content-tab">
+            <div class="content-inner active">
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t1.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Nellara</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $10.99
                         </div>
-                        <div class="list-comment">
-                            <h3 class="title-listing">2 Reviews</h3>
-                            <div class="comments-area">
-                                <ol class="comment-list">
-                                    <li class="comment">
-                                        <article class="comment-body clearfix">
-                                            <div class="comment-author">
-                                                <img src="images/services/c1.png" alt="image">
-                                            </div><!-- .comment-author -->
-                                            <div class="comment-text">
-                                                <div class="comment-metadata">
-                                                    <h5><a href="#">Admin</a></h5>
-                                                    <p class="day">12/01/2017</p> <div class="flat-start">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </div>
-                                                </div><!-- .comment-metadata -->
-                                                <div class="comment-content">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
-                                                </div><!-- .comment-content -->
-                                            </div><!-- /.comment-text -->
-                                        </article><!-- .comment-body -->
-                                    </li><!-- #comment-## -->
-                                    <li class="comment">
-                                        <article class="comment-body clearfix">
-                                            <div class="comment-author">
-                                                <img src="images/services/c2.png" alt="image">
-                                            </div><!-- .comment-author -->
-                                            <div class="comment-text">
-                                                <div class="comment-metadata">
-                                                    <h5><a href="#">Admin</a></h5>
-                                                    <p class="day">12/01/2017</p> <div class="flat-start">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </div>
-                                                </div><!-- .comment-metadata -->
-                                                <div class="comment-content">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
-                                                </div><!-- .comment-content -->
-                                            </div><!-- /.comment-text -->
-                                        </article><!-- .comment-body -->
-                                    </li><!-- #comment-## -->
-                                    <li class="comment">
-                                        <article class="comment-body clearfix">
-                                            <div class="comment-author">
-                                                <img src="images/services/c3.png" alt="image">
-                                            </div><!-- .comment-author -->
-                                            <div class="comment-text">
-                                                <div class="comment-metadata">
-                                                    <h5><a href="#">Admin</a></h5>
-                                                    <p class="day">12/01/2017</p> <div class="flat-start">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </div>
-                                                </div><!-- .comment-metadata -->
-                                                <div class="comment-content">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
-                                                </div><!-- .comment-content -->
-                                            </div><!-- /.comment-text -->
-                                        </article><!-- .comment-body -->
-                                    </li><!-- #comment-## -->
-                                </ol><!-- .comment-list -->
-
-                                <div class="comment-respond" id="respond">
-                                    <h3 class="title-listing">Add a Review</h3>
-                                    <form novalidate="" class="comment-form clearfix" id="commentform" method="post" action="#">
-                                        <div class="wrap-input clearfix">
-                                            <p class="comment-notes">
-                                                <input type="email" placeholder="Your Email" size="30" value="" name="email">
-                                            </p>
-                                            <p class="comment-form-email">
-                                                <input type="text" placeholder="Your Name" aria-required="true" name="title">
-
-                                            </p>
-                                        </div>
-                                        <p class="comment-form-comment">
-                                            <textarea class="" tabindex="4" placeholder="Preview" name="comment" required></textarea>
-                                        </p>
-                                        <div class="start-review">
-                                            <span class="flat-start">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </span>
-                                            <span> ( Your rating )</span>
-                                        </div>
-                                        <p class="form-submit">
-                                            <button class="comment-submit effect-button">Send Review</button>
-                                        </p>
-                                    </form>
-                                </div><!-- /.comment-respond -->
-                            </div><!-- /.comments-area -->
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
                         </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Quesarito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $2.49
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $3.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Cantina Power Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $3.79
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-inner">
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Cantina Power Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $7.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Quesarito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $5.49
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $14.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t1.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Nellara</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $5.79
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-inner">
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Nellara</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $15.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Quesarito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $2.49
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t1.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $3.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Cantina Power Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $3.79
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-inner">
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">food puttu</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $12.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Quesarito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $6.49
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $3.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Cantina Power Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $3.79
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-inner">
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t1.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Nellara</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $10.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t2.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Quesarito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $2.49
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t3.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">XXL Grilled Stuft Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $3.99
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-food clearfix">
+                    <div class="featured-food float-left">
+                        <span class="effect"><img src="images/services/t4.jpg" alt=""></span>
+                    </div>
+                    <div class="content-food float-left">
+                        <h5><a href="#">Cantina Power Burrito</a></h5>
+                        <p>Late evening craving for some comfort food led me to this place. In this case, my humble state food puttu or steamed rice cake </p>
+                    </div>
+                    <div class="rate-food float-right">
+                        <div class="price">
+                            $3.79
+                        </div>
+                        <div class="flat-start">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+                        <!-- /.content-tab -->
+                        <!--</div>
+        </div>-->
+                        <!--<div class="list-comment">
+        <h3 class="title-listing">2 Reviews</h3>
+        <div class="comments-area">
+            <ol class="comment-list">
+                <li class="comment">
+                    <article class="comment-body clearfix">
+                        <div class="comment-author">
+                            <img src="images/services/c1.png" alt="image">
+                        </div>-->
+                        <!-- .comment-author -->
+                        <!--<div class="comment-text">
+        <div class="comment-metadata">
+            <h5><a href="#">Admin</a></h5>
+            <p class="day">12/01/2017</p> <div class="flat-start">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+        </div>-->
+                        <!-- .comment-metadata -->
+                        <!--<div class="comment-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+        </div>-->
+                        <!-- .comment-content -->
+                        <!--</div>--><!-- /.comment-text -->
+                        <!--</article>--><!-- .comment-body -->
+                        <!--</li>--><!-- #comment-## -->
+                        <!--<li class="comment">
+        <article class="comment-body clearfix">
+            <div class="comment-author">
+                <img src="images/services/c2.png" alt="image">
+            </div>-->
+                        <!-- .comment-author -->
+                        <!--<div class="comment-text">
+        <div class="comment-metadata">
+            <h5><a href="#">Admin</a></h5>
+            <p class="day">12/01/2017</p> <div class="flat-start">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+        </div>-->
+                        <!-- .comment-metadata -->
+                        <!--<div class="comment-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+        </div>-->
+                        <!-- .comment-content -->
+                        <!--</div>--><!-- /.comment-text -->
+                        <!--</article>--><!-- .comment-body -->
+                        <!--</li>--><!-- #comment-## -->
+                        <!--<li class="comment">
+        <article class="comment-body clearfix">
+            <div class="comment-author">
+                <img src="images/services/c3.png" alt="image">
+            </div>-->
+                        <!-- .comment-author -->
+                        <!--<div class="comment-text">
+        <div class="comment-metadata">
+            <h5><a href="#">Admin</a></h5>
+            <p class="day">12/01/2017</p> <div class="flat-start">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+        </div>-->
+                        <!-- .comment-metadata -->
+                        <!--<div class="comment-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+        </div>-->
+                        <!-- .comment-content -->
+                        <!--</div>--><!-- /.comment-text -->
+                        <!--</article>--><!-- .comment-body -->
+                        <!--</li>--><!-- #comment-## -->
+                        <!--</ol>--><!-- .comment-list -->
+                        <!--<div class="comment-respond" id="respond">
+            <h3 class="title-listing">Add a Review</h3>
+            <form novalidate="" class="comment-form clearfix" id="commentform" method="post" action="#">
+                <div class="wrap-input clearfix">
+                    <p class="comment-notes">
+                        <input type="email" placeholder="Your Email" size="30" value="" name="email">
+                    </p>
+                    <p class="comment-form-email">
+                        <input type="text" placeholder="Your Name" aria-required="true" name="title">
+
+                    </p>
+                </div>
+                <p class="comment-form-comment">
+                    <textarea class="" tabindex="4" placeholder="Preview" name="comment" required></textarea>
+                </p>
+                <div class="start-review">
+                    <span class="flat-start">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </span>
+                    <span> ( Your rating )</span>
+                </div>
+                <p class="form-submit">
+                    <button class="comment-submit effect-button">Send Review</button>
+                </p>
+            </form>
+        </div>-->
+                        <!-- /.comment-respond -->
+                        <!--</div>--><!-- /.comments-area -->
+                        <!--</div>-->
 
                     </div>
                 </div><!-- /.listing-wrap -->
@@ -853,4 +893,21 @@
             </div>
         </div>
     </div>
-</section>  
+</section>
+<script src="javascript/jquery.min.js"></script>
+<script src="javascript/tether.min.js"></script>
+<script src="javascript/bootstrap.min.js"></script>
+<script src="javascript/jquery.easing.js"></script>
+<script src="javascript/jquery-waypoints.js"></script>
+<script src="javascript/jquery-countTo.js"></script>
+<script src="javascript/gmap3.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUIc2-TTbn2IGJ4W0_0ePkv3xBvA_2sCM&region=GB"></script>
+<script src="javascript/jquery.cookie.js"></script>
+<script src="javascript/bootstrap-datetimepicker.js"></script>
+<script src="javascript/bootstrap-datetimepicker.fr.js"></script>
+<script src="javascript/jquery.flexslider-min.js"></script>
+
+<script src="javascript/parallax.js"></script>
+<script src="javascript/smoothscroll.js"></script>
+
+<script src="javascript/main.js"></script>

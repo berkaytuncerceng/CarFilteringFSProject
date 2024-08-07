@@ -3,6 +3,22 @@
 @{
     ViewBag.Title = "Index";
 }
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Bootstrap  -->
+<link rel="stylesheet" type="text/css" href="/listany-package/listany/stylesheets/bootstrap.css">
+
+<!-- Theme Style -->
+<link rel="stylesheet" type="text/css" href="/listany-package/listany/stylesheets/style.css">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="/listany-package/listany/stylesheets/responsive.css">
+
+<link rel="stylesheet" type="text/css" href="/listany-package/listany/stylesheets/bootstrap-datetimepicker.min.css">
+
+<!-- Animation Style -->
+<link rel="stylesheet" type="text/css" href="/listany-package/listany/stylesheets/animate.css">
 
 
 <section class="main-content page-listing-grid">
@@ -63,7 +79,7 @@
                             <div class="rate-product">
                                 <div class="link-review clearfix">
                                     <div class="button-product float-left">
-                                        <button type="button" class="flat-button" onclick="location.href='https://localhost:7123/Home/Details'">Görüntüle</button>
+                                        <button type="button" class="flat-button" onclick="location.href='@Url.Action("Details", "Home", new { id = ilan.Id })'">Görüntüle</button>
                                     </div>
                                     <div class="start-review">
                                         <span class="flat-start">
@@ -146,7 +162,8 @@
                                     <option value="Pembe">Pembe</option>
                                     <option value="Kahverengi">Kahverengi</option>
                                     <!-- Diğer kaynak seçenekleri burada -->
-                                </select>                            </p>
+                                </select>
+                            </p>
                             <p class="form-submit text-center">
                                 <button class="flat-button">Ara <i class="ion-ios-search-strong"></i></button>
                             </p>

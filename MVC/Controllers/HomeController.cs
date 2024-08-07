@@ -68,9 +68,31 @@ namespace WebApplication1.Controllers
 			return View(model);
 		}
 
-		public IActionResult Details()
+		public IActionResult Details(int Id)
 		{
-			return View();
+			var model = new MVC.Models.IlanViewModel();
+			var result = _ilanService.GetById(Id);
+			if (!result.Success)
+				return BadRequest();
+			model.Id = result.Data.Id;
+			model.KaynakId = result.Data.KaynakId;
+			model.IlanNo = result.Data.IlanNo;
+			model.Baslik = result.Data.Baslik;
+			model.Link = result.Data.Link;
+			model.imageUrl_L = result.Data.imageUrl_L;
+			model.imageUrl_M = result.Data.imageUrl_M;
+			model.imageUrl_S = result.Data.imageUrl_S;
+			model.model = result.Data.model;
+			model.modelYili = result.Data.modelYili;
+			model.km = result.Data.km;
+			model.renk = result.Data.renk;
+			model.fiyat = result.Data.fiyat;
+			model.tarih = result.Data.tarih;
+			model.yer = result.Data.yer;
+			model.kayitTarihi = result.Data.kayitTarihi;
+
+
+			return View(model);
 		}
 		public IActionResult Privacy()
 		{
