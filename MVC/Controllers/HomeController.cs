@@ -1,4 +1,5 @@
-﻿using Business.Abstract;
+﻿using AutoMapper;
+using Business.Abstract;
 using DTOs.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,12 @@ namespace WebApplication1.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 		private IIlanService _ilanService;
-
-		public HomeController(ILogger<HomeController> logger, IIlanService ilanService)
+		private IMapper _mapper;
+		public HomeController(ILogger<HomeController> logger, IIlanService ilanService, IMapper mapper)
 		{
 			_logger = logger;
 			_ilanService = ilanService;
+			_mapper = mapper;
 		}
 
 		public IActionResult Index(IlanForFilterDto filter, string sortOrder = null)
@@ -62,28 +64,11 @@ namespace WebApplication1.Controllers
 
 		public IActionResult Details(int Id)
 		{
-			var model = new MVC.Models.IlanViewModel();
-			var result = _ilanService.GetById(Id);
+			var result = _ilanService.GetIlanDetails(Id);
 			if (!result.Success)
-				return BadRequest();
-			model.Id = result.Data.Id;
-			model.KaynakId = result.Data.KaynakId;
-			model.IlanNo = result.Data.IlanNo;
-			model.Baslik = result.Data.Baslik;
-			model.Link = result.Data.Link;
-			model.imageUrl_L = result.Data.imageUrl_L;
-			model.imageUrl_M = result.Data.imageUrl_M;
-			model.imageUrl_S = result.Data.imageUrl_S;
-			model.model = result.Data.model;
-			model.modelYili = result.Data.modelYili;
-			model.km = result.Data.km;
-			model.renk = result.Data.renk;
-			model.fiyat = result.Data.fiyat;
-			model.tarih = result.Data.tarih;
-			model.yer = result.Data.yer;
-			model.kayitTarihi = result.Data.kayitTarihi;
+				return BadRequest(result.Message);
 
-
+			var model = _mapper.Map<IlanViewModel>(result.Data);
 			return View(model);
 		}
 		public IActionResult Privacy()

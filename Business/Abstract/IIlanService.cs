@@ -14,5 +14,7 @@ namespace Business.Abstract
 		IDataResult<List<Ilan>> GetFiltered(IlanForFilterDto ilan);
 		public IDataResult<List<Ilan>> SortASC();// Filtrelenmişi döndürmüyor düzelt
 		public IDataResult<List<Ilan>> SortDESC(); // Filtrelenmişi döndürmüyor düzelt
+		public IDataResult<IlanForCreateDto> GetIlanDetails(int Id);
+
 	}
 }

@@ -125,6 +125,33 @@ namespace Business.Concrete
 			return new SuccessDataResult<List<Ilan>>(ilanlar, "İlanlar azalan sırada sıralandı.");
 		}
 
+		public IDataResult<IlanForCreateDto> GetIlanDetails(int Id)
+		{
+			var result = _ilanDal.GetById(Id);
+
+			var ilan = result;
+			var dto = new DTOs.Concrete.IlanForCreateDto
+			{
+				Id = ilan.Id,
+				KaynakId = ilan.KaynakId,
+				IlanNo = ilan.IlanNo,
+				Baslik = ilan.Baslik,
+				Link = ilan.Link,
+				imageUrl_L = ilan.imageUrl_L,
+				imageUrl_M = ilan.imageUrl_M,
+				imageUrl_S = ilan.imageUrl_S,
+				model = ilan.model,
+				modelYili = ilan.modelYili,
+				km = ilan.km,
+				renk = ilan.renk,
+				fiyat = ilan.fiyat,
+				tarih = ilan.tarih,
+				yer = ilan.yer,
+				kayitTarihi = ilan.kayitTarihi
+			};
+
+			return new SuccessDataResult<IlanForCreateDto>(dto);
+		}
 
 	}
 }
